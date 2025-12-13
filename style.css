@@ -129,15 +129,22 @@ body{
   left:0;
   right:0;
   z-index:20;
-  display:flex;
-  justify-content:center;
 }
 
 .topbar__inner{
-  width:min(var(--maxw),100%);
+  width:100%;
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding-left:24px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+}
+
+.burger--fixed{
+  position:fixed;
+  top:18px;
+  right:30px;
+  z-index:30;
 }
 
 .brand{
