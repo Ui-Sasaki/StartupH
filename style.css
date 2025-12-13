@@ -528,3 +528,12 @@ body.loading{ overflow:hidden; }
   .hero__video{ display:none; }
   .loaderVideo{ display:none; }
 }
+
+@media (max-width: 480px){
+  .star1,
+  .star2,
+  .heart,
+  .smile{
+    display: none;
+  }
+}
