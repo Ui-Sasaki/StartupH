@@ -97,11 +97,9 @@
 <script>
   function goProjects(){
     document.body.classList.add("glitchFlash");
-    setTimeout(() => document.body.classList.remove("glitchFlash"), 220);
     setTimeout(() => {
-      const target = document.getElementById("projects");
-      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 140);
+      window.location.href = "projects.html";
+    }, 220);
   }
 
   (function(){

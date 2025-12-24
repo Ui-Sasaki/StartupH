@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Startup H</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="projects.css" />
+</head>
+
+<body>
+  <div class="scrollHint">
+    <span class="scrollArrow">↓</span>
+    <span class="scrollText">SCROLL DOWN</span>
+  </div>
+
+  <video
+    id="heroVideo"
+    class="hero__video"
+    autoplay
+    muted
+    loop
+    playsinline
+    webkit-playsinline
+    preload="metadata"
+    poster="images/background.jpg"
+  >
+    <source src="images/background.mp4" type="video/mp4" />
+  </video>
+
+  <div class="overlay">
+    <header class="topTitle">
+      <h3 class="rainbowText">STARTUP H</h3>
+    </header>
+
+    <div class="projectWrapper">
+      <img
+        src="images/project.png"
+        alt="Project Background Paper"
+        class="projectPaper"
+      />
+
+      <div class="projectText train-one-regular">PROJECTS</div>
+
+      <div class="projects">
+        <div class="projectRow">
+
+            <a href="gominin.html" class="paperLink">
+          <div class="paperWrapper">
+            <img
+              src="images/paper1.png"
+              alt="ごみにん Paper"
+              class="projectItem paperLarge"
+            />
+
+            <img
+              src="team-images/gominin.png"
+              alt="ごみにん Logo"
+              class="paperImage"
+            />
+
+            <div class="paperContent">
+              <p class="projectDesc">
+                海外滞在中、街中に多数のゴミ箱が配置されていることから、廃棄物処理のスムーズさを実感した。一方、日本では公共空間にゴミ箱が少なく、不便さが際立つ。その背景には、地下鉄サリン事件以降の安全対策や維持管理コストといった複数の要因がある。しかし、ゴミ箱不足はポイ捨ての増加や家庭ごみの持ち込みなどの問題を招き、景観悪化や処理費用の増大、環境負荷の深刻化をもたらしている。
+                これらに対し、単にゴミ箱を増設するだけでは不十分であり、ポイ捨てを生む「誰かが片付けるだろう」といった意識の問題に踏み込む必要がある。そこで本プロジェクトでは、利用者の意識変容を促す「ごみにん」の開発を目指す。適切な分別や処理を自然に意識できる仕組みを備えたゴミ箱によって、利便性の向上にとどまらず、環境保全と持続可能で楽しい社会の実現に寄与したい。
+              </p>
+
+               <span class="learnMoreBtn">Learn More</span>
+            </div>
+          </div>
+          </a>
+
+          <img src="images/arrow.png" alt="" class="betweenArrow" />
+          
+          <a href="tunagen.html" class="paperLink">
+          <div class="paperWrapper paper2">
+            <img
+              src="images/paper2.png"
+              alt="Tunagen Paper"
+              class="projectItem paperSmall"
+            />
+
+            <img
+              src="team-images/tunagen.jpg"
+              alt="Tunagen Logo"
+              class="paperImage"
+            />
+
+            <div class="paperContent">
+              <p class="projectDesc">
+                Tunagenは、持続可能な技術とバイオの力を活用し、次世代の社会基盤を構築することを目指すプロジェクトです。
+              </p>
+
+               <span class="learnMoreBtn">Learn More</span>
+            </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div id="bottomSentinel"></div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hint = document.querySelector(".scrollHint");
+      const sentinel = document.querySelector("#bottomSentinel");
+      if (!hint || !sentinel) return;
+
+      const io = new IntersectionObserver(
+        ([entry]) => {
+          hint.style.opacity = entry.isIntersecting ? "0" : "1";
+        },
+        { threshold: 0.01 }
+      );
+
+      io.observe(sentinel);
+    });
+  </script>
+</body>
+</html>
