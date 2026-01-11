@@ -9,133 +9,147 @@
 
 <body class="loading">
 
-<div id="loader">
-  <video
-    id="loaderVideo"
-    class="loaderVideo"
-    autoplay
-    muted
-    playsinline
-    webkit-playsinline
-    preload="auto"
-    poster="images/background.jpg"
-  >
-    <source src="images/loading.mp4" type="video/mp4">
-  </video>
-  <div class="loaderOverlay"></div>
-  <button id="tapToStart" class="tapToStart" type="button">Tap to start</button>
-</div>
-
-<section class="hero">
-  <img class="hero__bgImage" src="images/background.jpg" alt="">
-
-  <video
-    id="heroVideo"
-    class="hero__video"
-    autoplay
-    muted
-    loop
-    playsinline
-    webkit-playsinline
-    preload="metadata"
-    poster="images/background.jpg"
-  >
-    <source src="images/background.mp4" type="video/mp4">
-  </video>
-
-  <div class="hero__vignette" aria-hidden="true"></div>
-  <div class="hero__scanlines" aria-hidden="true"></div>
-
- <header class="topbar">
-  <img src="images/logo.png" alt="Startup H logo" class="brand__logo brand--fixed">
-  <button class="burger burger--fixed" aria-label="menu">
-    <span></span><span></span><span></span>
-  </button>
-</header>
-
-  <img class="sticker bear" src="images/bear.PNG" alt="" aria-hidden="true">
-  <img class="sticker kimono" src="images/kimono.png" alt="" aria-hidden="true">
-  <img class="sticker megane" src="images/megane.png" alt="" aria-hidden="true">
-  <img class="sticker pc" src="images/pc.PNG" alt="" aria-hidden="true">
-  <img class="sticker trash" src="images/trash.png" alt="" aria-hidden="true">
-  <img class="sticker star1" src="images/star1.png" alt="" aria-hidden="true">
-  <img class="sticker star2" src="images/star2.png" alt="" aria-hidden="true">
-  <img class="sticker heart" src="images/heart.png" alt="" aria-hidden="true">
-  <img class="sticker smile" src="images/smile.png" alt="" aria-hidden="true">
-
-  <div class="hero__content">
-    <div class="paperWrap">
-      <img class="paper" src="images/paper.jpg" alt="paper">
-
-      <img class="tape tape--tl" src="images/left.png" alt="" aria-hidden="true">
-      <img class="tape tape--tr" src="images/righ2.png" alt="" aria-hidden="true">
-      <img class="tape tape--bl" src="images/right1.png" alt="" aria-hidden="true">
-      <img class="tape tape--br" src="images/right1.png" alt="" aria-hidden="true">
-
-      <div class="paperText">
-        <h1>
-          <span class="titleBox">
-            <span class="rainbowText">中高生は、世界を変えたい。</span>
-          </span>
-        </h1>
-
-        <p>中高生が社会課題の解決策を作り、実装する。</p>
-        <p>大人がそれを支援する。</p>
-        <p><strong>それが Startup H。</strong></p>
-
-        <button class="glitchBtn" type="button" onclick="goProjects()">
-          <span class="glitchBtn__text" data-text="のぞいてみる">のぞいてみる</span>
-          <span class="glitchBtn__icon">▶</span>
-        </button>
-      </div>
-    </div>
+  <div id="loader">
+    <video
+      id="loaderVideo"
+      class="loaderVideo"
+      autoplay
+      muted
+      loop
+      playsinline
+      webkit-playsinline
+      preload="auto"
+      poster="images/background.jpg"
+    >
+      <source src="images/loading.mp4" type="video/mp4">
+    </video>
+    <div class="loaderOverlay"></div>
+    <button id="tapToStart" class="tapToStart" type="button">Tap to start</button>
   </div>
 
-  <div class="sectionTitle" id="projects">Featured Projects</div>
-</section>
+  <section class="hero">
+    <img class="hero__bgImage" src="images/background.jpg" alt="">
 
-<script>
-  function goProjects(){
-    document.body.classList.add("glitchFlash");
-    setTimeout(() => {
-      window.location.href = "projects.html";
-    }, 220);
-  }
+    <video
+      id="heroVideo"
+      class="hero__video"
+      autoplay
+      muted
+      loop
+      playsinline
+      webkit-playsinline
+      preload="metadata"
+      poster="images/background.jpg"
+    >
+      <source src="images/background.mp4" type="video/mp4">
+    </video>
 
-  (function(){
-    const loader = document.getElementById("loader");
-    const loaderVideo = document.getElementById("loaderVideo");
-    const heroVideo = document.getElementById("heroVideo");
-    const tapBtn = document.getElementById("tapToStart");
+    <div class="hero__vignette" aria-hidden="true"></div>
+    <div class="hero__scanlines" aria-hidden="true"></div>
 
-    const hideAfter = 6200;
-    let timer = setTimeout(hide, hideAfter);
+    <header class="topbar">
+      <img src="images/logo.png" alt="Startup H logo" class="brand__logo brand--fixed">
 
-    function hide(){
-      if (!loader) return;
-      loader.classList.add("hidden");
-      document.body.classList.remove("loading");
-      clearTimeout(timer);
+      <nav class="topnav" aria-label="Primary">
+        <a href="index.html" class="topnav__link">TOP</a>
+        <a href="projects.html" class="topnav__link">Projects</a>
+        <a href="news.html" class="topnav__link">NEWS</a>
+        <a href="company.html" class="topnav__link">Company</a>
+        <a href="contact.html" class="topnav__link">Contact Us</a>
+      </nav>
+    </header>
+
+    <img class="sticker bear" src="images/bear.PNG" alt="" aria-hidden="true">
+    <img class="sticker kimono" src="images/kimono.png" alt="" aria-hidden="true">
+    <img class="sticker megane" src="images/megane.png" alt="" aria-hidden="true">
+    <img class="sticker pc" src="images/pc.PNG" alt="" aria-hidden="true">
+    <img class="sticker trash" src="images/trash.png" alt="" aria-hidden="true">
+    <img class="sticker star1" src="images/star1.png" alt="" aria-hidden="true">
+    <img class="sticker star2" src="images/star2.png" alt="" aria-hidden="true">
+    <img class="sticker heart" src="images/heart.png" alt="" aria-hidden="true">
+    <img class="sticker smile" src="images/smile.png" alt="" aria-hidden="true">
+
+    <div class="hero__content">
+      <div class="paperWrap">
+        <img class="paper" src="images/paper.jpg" alt="paper">
+
+        <img class="tape tape--tl" src="images/left.png" alt="" aria-hidden="true">
+        <img class="tape tape--tr" src="images/righ2.png" alt="" aria-hidden="true">
+        <img class="tape tape--bl" src="images/right1.png" alt="" aria-hidden="true">
+        <img class="tape tape--br" src="images/right1.png" alt="" aria-hidden="true">
+
+        <div class="paperText">
+          <h1>
+            <span class="titleBox">
+              <span class="rainbowText">中高生は、世界を変えたい。</span>
+            </span>
+          </h1>
+
+          <p>中高生が社会課題の解決策を作り、実装する。</p>
+          <p>大人がそれを支援する。</p>
+          <p><strong>それが Startup H。</strong></p>
+
+          <button class="glitchBtn" type="button" onclick="goProjects()">
+            <span class="glitchBtn__text" data-text="のぞいてみる">のぞいてみる</span>
+            <span class="glitchBtn__icon">▶</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sectionTitle" id="projects">Featured Projects</div>
+  </section>
+
+  <script>
+    function goProjects(){
+      document.body.classList.add("glitchFlash");
+      setTimeout(() => {
+        window.location.href = "projects.html";
+      }, 220);
     }
 
-    async function tryPlay(){
-      let ok = true;
-      try{ await loaderVideo.play(); }catch(e){ ok = false; }
-      try{ await heroVideo.play(); }catch(e){}
-      if (!ok) tapBtn.classList.add("show");
-    }
+    // Loader: loops if slow, hides when page is ready
+    (function(){
+      const loader = document.getElementById("loader");
+      const loaderVideo = document.getElementById("loaderVideo");
+      const heroVideo = document.getElementById("heroVideo");
+      const tapBtn = document.getElementById("tapToStart");
 
-    async function onTap(){
-      tapBtn.classList.remove("show");
-      try{ await loaderVideo.play(); }catch(e){}
-      try{ await heroVideo.play(); }catch(e){}
-    }
+      if (!loader || !loaderVideo) return;
 
-    tapBtn.addEventListener("click", onTap);
-    document.addEventListener("DOMContentLoaded", tryPlay);
-    loaderVideo.addEventListener("ended", hide);
-  })();
-</script>
+      const MIN_SHOW_TIME = 1200;
+      const startTime = Date.now();
+
+      async function tryPlay(){
+        try {
+          await loaderVideo.play();
+          await heroVideo?.play();
+        } catch(e) {
+          tapBtn?.classList.add("show");
+        }
+      }
+
+      async function onTap(){
+        tapBtn?.classList.remove("show");
+        try { await loaderVideo.play(); } catch(e){}
+        try { await heroVideo?.play(); } catch(e){}
+      }
+
+      tapBtn?.addEventListener("click", onTap);
+
+      window.addEventListener("load", () => {
+        const elapsed = Date.now() - startTime;
+        const delay = Math.max(0, MIN_SHOW_TIME - elapsed);
+
+        setTimeout(() => {
+          loader.classList.add("hidden");
+          document.body.classList.remove("loading");
+        }, delay);
+      });
+
+      document.addEventListener("DOMContentLoaded", tryPlay);
+    })();
+  </script>
 
 </body>
 </html>
