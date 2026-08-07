@@ -22,7 +22,16 @@
     <a href="company.html" class="topnav__link">Company</a>
     <a href="contact.html" class="topnav__link">Contact Us</a>
   </nav>
-</header>
+
+<div id="mobileMenu" class="mobileMenu" aria-hidden="true">
+  <nav class="mobileMenu__nav">
+    <a href="index.html">TOP</a>
+    <a href="projects.html">Projects</a>
+    <a href="news.html">NEWS</a>
+    <a href="company.html">Company</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+</div>
 
 <a href="projects.html" class="backArrow" aria-label="Back to projects">
   &lt;
@@ -42,28 +51,94 @@
 </video>
 
 <div class="overlay">
-  <h1 class="pageTitle">ちいラボ
-  </h1>
+  <h1 class="pageTitle">ちいラボ</h1>
 </div>
-<div class="paperSection">
 
+<div class="paperSection">
   <img src="images/paper.jpg" alt="" class="pageImage">
 
   <div class="paperText">
-  <p>ちいラボとは、「広尾学園の高校生」と「地域のこどもたち」の、ちいさなロボット研究所です！子どもたちが地域の課題を解決するロボットを開発して、街で社会実装を目指します。</p>
-    <p>大好評だった広尾学園発の起業家xロボット講座が常設化しました！</p>
+    <p>
+      ちいラボとは、「広尾学園の高校生」と「地域のこどもたち」の、ちいさなロボット研究所です！子どもたちが地域の課題を解決するロボットを開発して、街で社会実装を目指します。
+    </p>
+
+    <p>
+      大好評だった広尾学園発の起業家×ロボット講座が常設化しました！
+    </p>
+
     <ul>
       <li>まちの困りごとを一緒に解決！</li>
       <li>自由な発想でロボットを発明しよう！</li>
       <li>広尾学園の生徒がサポート！</li>
     </ul>
-    <p>ご質問やご意見があれば、お気軽にインスタのアカウントまでご連絡ください。インスタグラムのアカウント：https://www.instagram.com/chii_lab/</p>
+
+    <p>
+      ご質問やご意見があれば、お気軽にインスタのアカウントまでご連絡ください。インスタグラムのアカウント：
+      <a href="https://www.instagram.com/chii_lab/" target="_blank" rel="noopener noreferrer">
+        @chii_lab
+      </a>
+    </p>
+  </div>
+
   <div class="logoBlock">
     <img src="team-images/chi-lab.png" alt="ちいラボ ロゴ">
   </div>
 
-    <img src="team-images/chii_lab_qr.png" alt="QR code" class="qrCode">
-
+  <img src="team-images/chii_lab_qr.png" alt="ちいラボ Instagram QRコード" class="qrCode">
 </div>
+
+<script>
+const burgerButton = document.getElementById("burgerButton");
+const mobileMenu = document.getElementById("mobileMenu");
+
+function openMobileMenu() {
+  burgerButton.classList.add("is-open");
+  mobileMenu.classList.add("is-open");
+
+  burgerButton.setAttribute("aria-expanded", "true");
+  burgerButton.setAttribute("aria-label", "メニューを閉じる");
+  mobileMenu.setAttribute("aria-hidden", "false");
+
+  document.body.classList.add("menu-open");
+}
+
+function closeMobileMenu() {
+  burgerButton.classList.remove("is-open");
+  mobileMenu.classList.remove("is-open");
+
+  burgerButton.setAttribute("aria-expanded", "false");
+  burgerButton.setAttribute("aria-label", "メニューを開く");
+  mobileMenu.setAttribute("aria-hidden", "true");
+
+  document.body.classList.remove("menu-open");
+}
+
+burgerButton.addEventListener("click", () => {
+  if (mobileMenu.classList.contains("is-open")) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+});
+
+mobileMenu.addEventListener("click", (event) => {
+  if (event.target === mobileMenu || event.target.closest("a")) {
+    closeMobileMenu();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeMobileMenu();
+  }
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 768) {
+    closeMobileMenu();
+  }
+});
+</script>
+
 </body>
 </html>

@@ -22,7 +22,16 @@
     <a href="company.html" class="topnav__link">Company</a>
     <a href="contact.html" class="topnav__link">Contact Us</a>
   </nav>
-</header>
+  
+<div id="mobileMenu" class="mobileMenu" aria-hidden="true">
+  <nav class="mobileMenu__nav">
+    <a href="index.html">TOP</a>
+    <a href="projects.html">Projects</a>
+    <a href="news.html">NEWS</a>
+    <a href="company.html">Company</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+</div>
 
 <a href="projects.html" class="backArrow" aria-label="Back to projects">
   &lt;
@@ -44,11 +53,10 @@
 <div class="overlay">
   <h1 class="pageTitle">ごみにん</h1>
 </div>
-<img src="images/paper.jpg" alt="" class="pageImage">
+
 <div class="paperSection">
 
   <img src="images/paper.jpg" alt="" class="pageImage">
-
   <div class="paperText">
     <p>
       私たちが海外に滞在していた際、街の至るところにゴミ箱が設置されており、ごみの処理が非常にスムーズに行われていると感じた。一方で、日本に帰国してみると、公共の場にゴミ箱がほとんど見当たらず、不便さを強く実感した。ではなぜ日本にはゴミ箱が少ないのか。その理由を調査したところ、地下鉄サリン事件を契機とする安全面での懸念や、設置および管理にかかるコストなど、複数の要因が背景にあることが明らかとなった。
@@ -72,5 +80,64 @@
   </div>
 
 </div>
+
+<script>
+const burgerButton = document.getElementById("burgerButton");
+const mobileMenu = document.getElementById("mobileMenu");
+
+function openMobileMenu() {
+  burgerButton.classList.add("is-open");
+  mobileMenu.classList.add("is-open");
+
+  burgerButton.setAttribute("aria-expanded", "true");
+  burgerButton.setAttribute("aria-label", "メニューを閉じる");
+  mobileMenu.setAttribute("aria-hidden", "false");
+
+  document.body.classList.add("menu-open");
+}
+
+function closeMobileMenu() {
+  burgerButton.classList.remove("is-open");
+  mobileMenu.classList.remove("is-open");
+
+  burgerButton.setAttribute("aria-expanded", "false");
+  burgerButton.setAttribute("aria-label", "メニューを開く");
+  mobileMenu.setAttribute("aria-hidden", "true");
+
+  document.body.classList.remove("menu-open");
+}
+
+burgerButton?.addEventListener("click", () => {
+  const isOpen = mobileMenu.classList.contains("is-open");
+
+  if (isOpen) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+});
+
+mobileMenu?.addEventListener("click", (event) => {
+  if (
+    event.target === mobileMenu ||
+    event.target.closest("a")
+  ) {
+    closeMobileMenu();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeMobileMenu();
+  }
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 768) {
+    closeMobileMenu();
+  }
+});
+</script>
+
 </body>
 </html>

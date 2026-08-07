@@ -142,7 +142,7 @@ html, body{
   width:90%;
   height: 40%;
   margin:0 auto;
-  margin-top: -58%;
+  margin-top: -48%;
   position:relative;
   z-index:1;
   pointer-events:none;
@@ -152,13 +152,13 @@ html, body{
 .paperSection{
   position:relative;
   width:90%;
-  margin-top:100px;
+  margin-top:80px;
   min-height:550px;
 }
 
 .paperText{
   position:absolute;
-  top:15%;
+  top:10%;
   left:55%;
   transform:translate(-50%, var(--paperShiftY));
   width:80%;
@@ -178,8 +178,8 @@ html, body{
 
 .logoBlock{
   position:absolute;
-  top:25%;
-  right:3%;
+  top:42%;
+  right:5%;
   transform:translateY(var(--logoShiftY));
   z-index:2;
 }
@@ -188,40 +188,131 @@ html, body{
   width:180px;
   height:auto;
 }
-
 @media (max-width:768px){
-  .paperText{
-    width:85%;
-    font-size:14px;
-  }
-
-  .logoBlock{
-    position:static;
-    transform:none;
-    margin-top:24px;
-    text-align:center;
-  }
-
-  .paperSection{
-    min-height:1100px;
-  }
-}
-
-@media (max-width:600px){
-  .overlay{
-    padding-top:120px;
-  }
-
-  .pageTitle{
-    font-size:clamp(28px,8vw,48px);
+  .topbar{
+    top:0;
+    left:auto;
+    right:0;
   }
 
   .topnav{
-    gap:16px;
+    display:none;
   }
 
-  .topnav__link{
-    font-size:12px;
+  .backArrow{
+    position:fixed;
+    top:16px;
+    left:18px;
+    font-size:28px;
+    z-index:70;
+  }
+
+  .overlay{
+    min-height:220px;
+    padding-top:65px;
+    justify-content:flex-start;
+  }
+
+  .pageTitle{
+    margin-top:0;
+    font-size:clamp(30px,10vw,48px);
+    letter-spacing:0.1em;
+    text-indent:0.1em;
+  }
+
+  .paperSection{
+    position:relative;
+    width:100%;
+    min-height:0;
+    margin-top:-10%;
+    padding:0 14px 150px;
+  }
+
+  .pageImage{
+    display:none;
+  }
+
+  .paperText{
+    position:relative;
+    top:auto;
+    left:auto;
+    transform:none;
+
+    width:100%;
+    margin:0 auto;
+    padding:24px 20px;
+
+    font-size:13px;
+    line-height:1.9;
+
+    background:
+      linear-gradient(
+        rgba(255,255,255,0.94),
+        rgba(255,255,255,0.94)
+      ),
+      url("images/paper.jpg") center / cover;
+
+    border-radius:12px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.3);
+  }
+
+  .paperText p{
+    margin-bottom:1.6em;
+  }
+
+  .paperText p:last-child{
+    margin-bottom:0;
+  }
+
+  .logoBlock{
+    position:relative;
+    top:auto;
+    right:auto;
+    transform:none;
+
+    width:100%;
+    margin-top:0;
+    padding-right:10px;
+
+    text-align:right;
+  }
+
+  .logoBlock img{
+    width:160px;
+    max-width:50vw;
+    height:auto;
+    border-radius:8px;
   }
 }
 
+@media (max-width:480px){
+  .overlay{
+    min-height:190px;
+    padding-top:60px;
+  }
+
+  .pageTitle{
+    font-size:34px;
+  }
+
+  .paperSection{
+    margin-top:-10%;
+    padding:0 10px 110px;
+  }
+
+  .paperText{
+    padding:20px 17px;
+    font-size:12.5px;
+    line-height:1.85;
+  }
+
+  .logoBlock{
+    margin-top:0;
+    padding-right:4px;
+  }
+
+  .logoBlock img{
+    width:150px;
+    max-width:48vw;
+  }
+}

@@ -7,7 +7,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Train+One&display=swap"
+    rel="stylesheet"
+  />
 
   <link rel="stylesheet" href="tunagen.css" />
 </head>
@@ -23,6 +26,16 @@
     <a href="contact.html" class="topnav__link">Contact Us</a>
   </nav>
 </header>
+
+<div id="mobileMenu" class="mobileMenu" aria-hidden="true">
+  <nav class="mobileMenu__nav" aria-label="Mobile navigation">
+    <a href="index.html">TOP</a>
+    <a href="projects.html">Projects</a>
+    <a href="news.html">NEWS</a>
+    <a href="company.html">Company</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+</div>
 
 <a href="projects.html" class="backArrow" aria-label="Back to projects">
   &lt;
@@ -42,23 +55,83 @@
 </video>
 
 <div class="overlay">
-  <h1 class="pageTitle">つなげん
-  </h1>
+  <h1 class="pageTitle">つなげん</h1>
 </div>
-<div class="paperSection">
 
+<div class="paperSection">
   <img src="images/paper.jpg" alt="" class="pageImage">
 
   <div class="paperText">
-   <p>「つなげん」は、広尾学園高校の生徒が運営する英語体験イベントプロジェクトです。</p>
-      <p>遊びながら自然に英語に触れ、子どもたちの「聞く力」と「話す力」を楽しく伸ばすことを目指しています。</p>
-      <p>大人よりも身近な存在である高校生と英語を通して交流することで、子どもたちが英語を“勉強”としてではなく、“楽しいコミュニケーション”として感じられる場を作りたいと考えています。</p>
-    </div>
+    <p>
+      「つなげん」は、広尾学園高校の生徒が運営する英語体験イベントプロジェクトです。
+    </p>
 
-  <div class="logoBlock">
-    <img src="team-images/tunagen.jpg" alt="ごみにん ロゴ">
+    <p>
+      遊びながら自然に英語に触れ、子どもたちの「聞く力」と「話す力」を楽しく伸ばすことを目指しています。
+    </p>
+
+    <p>
+      大人よりも身近な存在である高校生と英語を通して交流することで、子どもたちが英語を“勉強”としてではなく、“楽しいコミュニケーション”として感じられる場を作りたいと考えています。
+    </p>
   </div>
 
+  <div class="logoBlock">
+    <img src="team-images/tunagen.jpg" alt="つなげん ロゴ">
+  </div>
 </div>
+
+<script>
+const burgerButton = document.getElementById("burgerButton");
+const mobileMenu = document.getElementById("mobileMenu");
+
+function openMobileMenu() {
+  burgerButton.classList.add("is-open");
+  mobileMenu.classList.add("is-open");
+
+  burgerButton.setAttribute("aria-expanded", "true");
+  burgerButton.setAttribute("aria-label", "メニューを閉じる");
+  mobileMenu.setAttribute("aria-hidden", "false");
+
+  document.body.classList.add("menu-open");
+}
+
+function closeMobileMenu() {
+  burgerButton.classList.remove("is-open");
+  mobileMenu.classList.remove("is-open");
+
+  burgerButton.setAttribute("aria-expanded", "false");
+  burgerButton.setAttribute("aria-label", "メニューを開く");
+  mobileMenu.setAttribute("aria-hidden", "true");
+
+  document.body.classList.remove("menu-open");
+}
+
+burgerButton.addEventListener("click", () => {
+  if (mobileMenu.classList.contains("is-open")) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+});
+
+mobileMenu.addEventListener("click", (event) => {
+  if (event.target === mobileMenu || event.target.closest("a")) {
+    closeMobileMenu();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeMobileMenu();
+  }
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 768) {
+    closeMobileMenu();
+  }
+});
+</script>
+
 </body>
 </html>

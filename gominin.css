@@ -42,16 +42,22 @@ html, body{
   transform:translateX(-4px);
 }
 
-.topbar{
-  position:absolute;
-  top:18px;
-  right:24px;
-  z-index:10;
-}
+@media (min-width:769px){
+  .topbar{
+    position:fixed;
+    top:18px;
+    right:24px;
+    left:auto;
+    width:auto;
+    z-index:100;
+  }
 
-.topnav{
-  display:flex;
-  gap:22px;
+  .topnav{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:22px;
+  }
 }
 
 .topnav__link{
@@ -115,6 +121,7 @@ html, body{
   color:transparent;
   animation:rainbowMove 6s linear infinite;
   z-index:2;
+  top: 0px;
 }
 
 .pageTitle::before{
@@ -149,7 +156,7 @@ html, body{
 
 .paperText{
   position:absolute;
-  top:12%;
+  top:13%;
   left:50%;
   transform:translateX(-50%);
   width:70%;
@@ -166,48 +173,343 @@ html, body{
 }
 
 .paperText p{
-  margin-bottom:1.6em;
+  margin-bottom:0.9em;
 }
 
-.logoBlock{
+  .logoBlock {
+    position: absolute;
+    top:-30px;
+    right: 135px;
+    left: auto;
+    width: auto;
+    margin: 0;
+    transform: none;
+    z-index: 5;
+  }
+
+  .logoBlock img {
+    width: 140px;
+  }
+  
+ 
+@media (max-width: 768px) {
+  html,
+  body {
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
+  .hero__video {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .backArrow {
+    position: fixed;
+    top: 16px;
+    left: 18px;
+    font-size: 28px;
+    z-index: 70;
+  }
+
+  .topbar {
+    top: 0;
+    left: auto;
+    right: 0;
+  }
+
+  .topnav {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+    top: 14px;
+    right: 14px;
+  }
+
+  .overlay {
+    min-height: 250px;
+    padding-top: 110px;
+    justify-content: flex-start;
+  }
+
+  .pageTitle {
+    top: -50px;
+    font-size: clamp(34px, 11vw, 52px);
+    letter-spacing: 0.12em;
+    text-indent: 0.12em;
+  }
+
+  .pageTitle::before {
+    inset: 3px -14px;
+  }
+
+  .paperSection {
+    width: 100%;
+    margin-top: -100px;
+    padding: 0 14px 50px;
+  }
+
+  .pageImage {
+    display: none;
+  }
+
+  .paperText {
+    position: relative;
+    transform: translateY(-40px);
+    left: auto;
+
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px 20px;
+
+    font-size: 13px;
+    line-height: 1.9;
+
+    background:
+      linear-gradient(
+        rgba(255, 255, 255, 0.94),
+        rgba(255, 255, 255, 0.94)
+      ),
+      url("images/paper.jpg") center / cover;
+
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .paperText p {
+    margin-bottom: 1.4em;
+  }
+
+  .paperText p:last-child {
+    margin-bottom: 0;
+  }
+
+  .logoBlock {
+    position: absolute;
+    top: -230px;
+    right: 25px;
+    left: auto;
+    width: auto;
+    margin: 0;
+    transform: none;
+    text-align: center;
+  }
+
+  .logoBlock img {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar {
+    top: 14px;
+    left: 50px;
+    right: 10px;
+  }
+
+  .topnav {
+    gap: 6px 9px;
+  }
+
+  .topnav__link {
+    font-size: 8px;
+  }
+
+  .overlay {
+    min-height: 280px;
+    padding-top: 100px;
+  }
+
+  .pageTitle {
+    font-size: 36px;
+  }
+
+  .paperSection {
+    padding-inline: 10px;
+  }
+
+  .paperText {
+    padding: 20px 17px;
+    font-size: 12.5px;
+    line-height: 1.85;
+  }
+
+    .logoBlock{
   position:absolute;
-  top:-14%;
-  right:14%;
-  z-index:2;
+  top:-100px;
+  right:10px;
+  left:auto;
+  width:auto;
+  margin:0;
+  transform:none;
+  text-align:center;
 }
 
-.logoBlock img{
-  width:180px;
-  height:auto;
-}
-
-@media (max-width:768px){
-  .paperText{
-    width:85%;
-    font-size:14px;
-  }
-
-  .logoBlock{
-    position:static;
-    margin-top:24px;
-    text-align:center;
+  .logoBlock img {
+    width: min(150px, 45vw);
   }
 }
 
-@media (max-width:600px){
-  .overlay{
-    padding-top:120px;
-  }
+.burger{
+  display:none;
+  position:fixed;
+  top:14px;
+  right:14px;
+  z-index:70;
 
-  .pageTitle{
-    font-size:clamp(28px,8vw,48px);
+  width:46px;
+  height:46px;
+  padding:0;
+
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:12px;
+  background:rgba(0,0,0,0.5);
+
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+
+  cursor:pointer;
+}
+
+.burger span{
+  position:absolute;
+  left:12px;
+
+  width:22px;
+  height:2px;
+
+  border-radius:10px;
+  background:#fff;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    top 0.25s ease;
+}
+
+.burger span:nth-child(1){
+  top:14px;
+}
+
+.burger span:nth-child(2){
+  top:22px;
+}
+
+.burger span:nth-child(3){
+  top:30px;
+}
+
+.burger.is-open span:nth-child(1){
+  top:22px;
+  transform:rotate(45deg);
+}
+
+.burger.is-open span:nth-child(2){
+  opacity:0;
+}
+
+.burger.is-open span:nth-child(3){
+  top:22px;
+  transform:rotate(-45deg);
+}
+
+.mobileMenu{
+  position:fixed;
+  inset:0;
+  z-index:55;
+
+  display:grid;
+  place-items:center;
+
+  padding:90px 24px 30px;
+
+  background:rgba(0,0,0,0.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.mobileMenu.is-open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+
+.mobileMenu__nav{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:26px;
+}
+
+.mobileMenu__nav a{
+  position:relative;
+
+  color:#fff;
+  text-decoration:none;
+  text-transform:uppercase;
+
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:0.14em;
+}
+
+.mobileMenu__nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-7px;
+
+  width:100%;
+  height:2px;
+
+  background:linear-gradient(
+    90deg,
+    #ff2de2,
+    #1de9ff,
+    #1dff6a
+  );
+
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.2s ease;
+}
+
+.mobileMenu__nav a:hover::after{
+  transform:scaleX(1);
+}
+
+body.menu-open{
+  overflow:hidden;
+}
+
+@media (max-width:480px){
+  .topbar{
+    top:0;
+    left:auto;
+    right:0;
   }
 
   .topnav{
-    gap:16px;
+    display:none;
   }
 
-  .topnav__link{
-    font-size:12px;
+  .burger{
+    display:block;
+  }
+
+  .backArrow{
+    position:fixed;
+    z-index:70;
   }
 }
